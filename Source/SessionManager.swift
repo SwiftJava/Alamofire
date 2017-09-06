@@ -117,6 +117,9 @@ open class SessionManager {
                 }()
 
                 let alamofireVersion: String = {
+                    #if os(Android)
+                        return "4.5.1"
+                    #endif
                     guard
                         let afInfo = Bundle(for: SessionManager.self).infoDictionary,
                         let build = afInfo["CFBundleShortVersionString"]
