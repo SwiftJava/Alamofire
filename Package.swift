@@ -22,15 +22,16 @@
 
 import PackageDescription
 
-#if os(Linux) || os(Android) || os(Windows)
+//#if os(Linux) || os(Android) || os(Windows)
 let package = Package(
     name: "Alamofire",
     exclude: ["Tests", "Source/NetworkReachabilityManager.swift", "Source/ServerTrustPolicy.swift"]
 )
-#else
-let package = Package(
-    name: "Alamofire",
-    dependencies : [],
-    exclude: ["Tests", "Source/ServerTrustPolicyPlaceholder.swift", "Source/MimeTypes.swift", "Source/CFString+String.swift"]
-)
-#endif
+//#else
+//let package = Package(
+//    name: "Alamofire",
+//    dependencies : [],
+//    exclude: ["Tests", "Source/ServerTrustPolicyPlaceholder.swift", "Source/MimeTypes.swift", "Source/CFString+String.swift"]
+//)
+//#endif
+
