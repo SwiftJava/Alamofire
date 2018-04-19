@@ -268,7 +268,12 @@ open class MultipartFormData {
             return
         }
 
-        #if os(Linux) || os(Android) || os(Windows)
+        #if swift(>=4.1)
+            guard !isDirectory.boolValue else {
+                setBodyPartError(withReason: .bodyPartFileIsDirectory(at: fileURL))
+                return
+            }
+        #elseif os(Linux) || os(Android) || os(Windows)
             guard !isDirectory else {
                 setBodyPartError(withReason: .bodyPartFileIsDirectory(at: fileURL))
                 return
