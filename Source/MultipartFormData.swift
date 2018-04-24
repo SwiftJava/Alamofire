@@ -274,7 +274,7 @@ open class MultipartFormData {
                 return
             }
         #elseif os(Linux) || os(Android) || os(Windows)
-            guard !isDirectory else {
+            guard !isDirectory.boolValue else {
                 setBodyPartError(withReason: .bodyPartFileIsDirectory(at: fileURL))
                 return
             }
